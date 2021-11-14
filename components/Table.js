@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Dimensions, Switch } from 'react-native';
-import { Table, Row, Rows } from 'react-native-table-component';
+import { Table, Row, Rows, Col, Cols } from 'react-native-table-component';
 // import Switch from './Switch';
 
 const { width, height } = Dimensions.get('window');
@@ -8,13 +8,8 @@ export default class ExampleOne extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tableHead: ['Activity Title', 'Date/Time', 'Status'],
-            tableData: [
-                ['Dialy', '2', <Switch value={true} style={styles.alignself} />],
-                ['Review', 'b', <Switch style={styles.alignself} />],
-                ['Visit', '2', <Switch style={styles.alignself} />],
-                ['Parent', 'b', <Switch style={styles.alignself} />]
-            ]
+            tableHead: props.head,
+            tableData: props.maintabledata
         }
     }
 
@@ -28,8 +23,9 @@ export default class ExampleOne extends Component {
                     <Rows data={state.tableData} textStyle={{
                         ...styles.text,
                         textAlign: 'center'
-                        // borderWidth: 2,
                     }} style={{ height: height * 0.05 }} />
+                    {/* <View>
+                    <Switch value={true} /> */}
                 </Table>
             </View>
         )

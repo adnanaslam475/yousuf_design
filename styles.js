@@ -1,8 +1,52 @@
-'use strict';
 import { StyleSheet, Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window')
 export const styles = StyleSheet.create({
+    modalvw: { width: width * 0.7, alignSelf: 'center', marginTop: 20 },
+    modaltxt: { flexBasis: '50%', fontSize: 20, fontWeight: 'bold' },
+    bottom: {
+        flexDirection: 'column', alignItems: 'flex-end', padding: 10,
+    },
+    back: {
+        backgroundColor: 'red',
+        position: 'absolute'
+    },
+    radio: { flexDirection: 'row', justifyContent: 'space-around' },
+    touch: {
+        width: width * 0.94,
+        marginTop: -height * 0.1,
+        height: height * 0.06,
+        borderRadius: 5,
+        justifyContent: 'center',
+        backgroundColor: 'lightblue',
+    },
+    ionicon: {
+        position: 'absolute',
+        right: 10,
+        top: 10
+    },
+    vw: {
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        marginLeft: 10,
+    },
+    dot: {
+        width: 10, height: 10,
+        borderColor: 'black',
+        backgroundColor: 'black',
+        borderRadius: 20,
+        margin: height * 0.02,
+    },
+    v: {
+        display: 'flex',
+        width: width * 0.85,
+        paddingLeft: width * 0.15,
+        position:'relative'
+    },
+    image: {
+        width: width * 0.7,
+        height: width * 0.4, borderRadius: 10
+    },
     alignself: { alignSelf: 'center' },
     container: {
         flex: 1, padding: 16, height: 300,

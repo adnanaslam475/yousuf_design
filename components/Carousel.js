@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import { View, ImageBackground, Image, Text, Dimensions } from 'react-native'
+import { View, Image, Text, Dimensions } from 'react-native'
 import Carousel, { Pagination } from 'react-native-snap-carousel';
-import { carouselItems } from '../constants'
-// import { styles } from '../styles'
-
+import { carouselItems, imgarr } from '../constants'
+import { styles } from '../styles';
 const { width, height } = Dimensions.get('window');
 
 export default class MyCarousel extends Component {
@@ -14,17 +13,19 @@ export default class MyCarousel extends Component {
             activeSlide: 0,
         }
     }
-    _renderItem({ item, index }) {
-        return <View style={{
-            display: 'flex',
-            width: width * 0.85,
-            paddingLeft: width * 0.15,
-        }}>
-            <Image style={{
-                width: width * 0.7,
-                height: width * 0.4, borderRadius: 10
 
-            }}
+    _renderItem({ item, index }) {
+        return <View style={styles.v}>
+            <View style={{
+                flexDirection: 'column', position: 'absolute',
+                left: width * 0.17,
+                top: 5
+            }}>
+                <Text >{item.title}</Text>
+                <Text >{item.description}</Text>
+                <Text >10:20 am</Text>
+            </View>
+            <Image style={{ ...styles.image, opacity: 0.5 }}
                 source={{ uri: item.uri }} />
         </View>
     }
@@ -35,14 +36,7 @@ export default class MyCarousel extends Component {
             <Pagination
                 dotsLength={carouselItems.length}
                 activeDotIndex={activeSlide}
-                dotElement={<View style={{
-                    width: 10, height: 10,
-                    borderColor: 'black',
-                    backgroundColor: 'black',
-
-                    borderRadius: 20,
-                    margin: height * 0.02,
-                }} />}
+                dotElement={<View style={styles.dot} />}
                 inactiveDotElement={<View style={{
                     width: 5, height: 5,
                     borderWidth: 2,
@@ -55,7 +49,6 @@ export default class MyCarousel extends Component {
                     height: 5,
                     width: width,
                 }}
-                dotContainerStyle={{}}
                 dotStyle={{
                     width: 10,
                     height: 10,
@@ -63,10 +56,6 @@ export default class MyCarousel extends Component {
                     marginHorizontal: 8,
                     backgroundColor: 'rgba(255, 255, 255, 0.92)'
                 }}
-            // inactiveDotStyle={{
-            // }}
-            // inactiveDotOpacity={0.1}
-            // inactiveDotScale={0.1}
             />
         );
     }

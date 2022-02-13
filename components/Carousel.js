@@ -57,7 +57,7 @@ export default class MyCarousel extends Component {
                     backgroundColor: 'rgba(255, 255, 255, 0.92)'
                 }}
             />
-        );
+        )
     }
 
     render() {
